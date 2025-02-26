@@ -35,6 +35,7 @@ module.exports.isreviewauthor = async (req,res,next)=>{
         req.flash("error","you are not the author of this comment");
         return res.redirect(`/listing/${id}`);
     }
+    next();
 
 };
 
