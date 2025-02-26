@@ -11,7 +11,7 @@ module.exports.reviewdatareceived = async(req,res,next)=>{
 
         await newreview.save();
         await findlist.save();
-        req.flash("sucess","comment sucessfull");
+        req.flash("sucess","Comment Sucessfull");
         res.redirect(`/listing/${id}`);
     }catch{
         next(new expresserror(800,"error in review"));
@@ -23,7 +23,7 @@ module.exports.deletereviw = async(req,res)=>{
     let {id, reviewid} = req.params;
     let resultupdate = await listing.findByIdAndUpdate(id,{$pull: {review: reviewid}});
     let result = await review.findByIdAndDelete(reviewid);
-    req.flash("sucess","comment delete sucessfully");
+    req.flash("sucess","Comment Deleted Sucessfully");
     res.redirect(`/listing/${id}`);
 
 };
