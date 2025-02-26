@@ -109,7 +109,7 @@ app.use("/",userrouter);
 
 //if wrong page request send by user
 app.all("*",(req,res,next)=>{
-    next(new expresserror(404,"page not found"));
+    next(new expresserror(404,"page not found1"));
 });
 
 
