@@ -15,7 +15,7 @@ module.exports.signupdatareceived = async(req,res)=>{
         if(err){
             return next(err);
         }
-        req.flash("sucess","welcome to airbnb");
+        req.flash("sucess","Welcome To AirBnb");
         res.redirect("/listing");
     })
     }catch(err){
@@ -29,7 +29,7 @@ module.exports.renderslogin = (req,res,next)=>{
 };
 
 module.exports.logindata = async (req,res,next)=>{
-    req.flash("sucess","welcome to AirBnb");
+    req.flash("sucess","Welcome To AirBnb");
     if(!res.locals.redirecturl){
         res.locals.redirecturl = "/listing";
     }
@@ -43,7 +43,7 @@ module.exports.logout = (req,res,next)=>{
             console.log("error in logout");
             return next(err);
         }
-        req.flash("sucess","you have logedout")
+        req.flash("sucess","You Have Logedout")
         res.redirect("/listing");
     })
 };
