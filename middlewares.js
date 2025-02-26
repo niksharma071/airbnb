@@ -14,7 +14,7 @@ class expresserror extends Error{
 module.exports.islogedin = (req,res,next)=>{
     if(!req.isAuthenticated()){
         req.session.redirecturl = req.originalUrl;
-        req.flash("error","you must be log before adding a listing");
+        req.flash("error","You Must Be LogedIn To Perform This Action");
         return res.redirect("/login");
     }
     next();
@@ -32,7 +32,7 @@ module.exports.isreviewauthor = async (req,res,next)=>{
     let findreview = await review.findById(reviewid);
     if(!findreview.author._id.equals(res.locals.curruser._id)){
         console.log("yes");
-        req.flash("error","you are not the author of this comment");
+        req.flash("error","You Are Not The Author Of This Comment");
         return res.redirect(`/listing/${id}`);
     }
     next();
