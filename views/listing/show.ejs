@@ -22,6 +22,11 @@
         }
     </style>
     <br>
+ <% if(curruser){ %>
+        <div id="username">
+            <b>Hello <%= curruser.username %></b>
+          </div>
+    <% } %>
       <br>
     <div id="filters">
         <div class="filter">
