@@ -5,7 +5,7 @@ module.exports.index = async (req,res,next)=>{
         const alllist = await listing.find({});
         res.render("listing/show.ejs",{alllist});
     } catch{
-        next(new expresserror(404,"error in finding"));
+        next(new expresserror(404,"Error In Finding"));
       
     }  
 };
@@ -24,7 +24,7 @@ module.exports.datanewlisting = async(req,res,next)=>{
         newlisting.owner = req.user._id;
         newlisting.image = {url,filename};
         await newlisting.save();
-        req.flash("sucess","new listing created");
+        req.flash("sucess","New Listing Created");
         res.redirect("/listing");
     }catch{
         next(new expresserror(800,"new"));
@@ -36,7 +36,7 @@ module.exports.showlisting = async(req,res)=>{
     let {id} = req.params;
     const findlist = await listing.findById(id).populate({path: "review",populate: {path: "author"},}).populate("owner");
     if(!findlist){
-        req.flash("error","listing you requesting not found");
+        req.flash("error","Listing You Requesting Not Found");
         res.redirect("/listing");
     }
     res.render("listing/showlist.ejs",{findlist});
@@ -53,7 +53,7 @@ module.exports.editeddaatareceived = async(req,res)=>{
     let listingda = req.body.listing;
     let finduser = await listing.findById(id)
     if(!finduser.owner._id.equals(res.locals.curruser._id)){
-        req.flash("error","you dont have the permission to edit this property");
+        req.flash("error","You Dont Have The Permission To Edit This Property");
         return res.redirect(`/listing/${id}`);
     }
     await listing.findByIdAndUpdate(id,{...listingda});
@@ -63,7 +63,7 @@ module.exports.editeddaatareceived = async(req,res)=>{
         finduser.image = {url,filename};
         await finduser.save();
     }
-    req.flash("sucess","listing edit sucessfully");
+    req.flash("sucess","Listing Edited Sucessfully");
     res.redirect("/listing");
 
 };
@@ -75,6 +75,6 @@ module.exports.deletelisting = async(req,res)=>{
         await reviews.findByIdAndDelete(revi);
     }
     await listing.findByIdAndDelete(id);
-    req.flash("sucess","listing deleted sucessfully");
+    req.flash("sucess","Listing Deleted Sucessfully");
     res.redirect("/listing");
 };
