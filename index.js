@@ -29,7 +29,7 @@ app.engine("ejs",ejsmate);
 app.use(express.static(path.join(__dirname,"/public")));
 
 
-const localdburl = 'mongodb://127.0.0.1:27017/airbnb';
+
 const dburl = process.env.ATLASDB_URL;
 
 
