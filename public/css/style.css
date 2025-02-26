@@ -88,4 +88,11 @@
 .show-img{
     height: 30vh;
 }
+#username{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
 
