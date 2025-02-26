@@ -1,0 +1,46 @@
+<% layout("/layout/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h2><%= findlist.title %></h2>
+        </div>
+        <div class="col-8 offset-2">
+            <div class="card">
+                <img src="<%= findlist.image %>" class="card-img-top show-img" alt="listing_image">
+                <div class="card-body">
+                  <p class="card-text">
+                    <b></b><br>
+                    <%= findlist.description %> <br>
+                    &#8377; <%= findlist.price.toLocaleString("en-IN") %> <br>
+                    <%= findlist.location %> <br>
+                    <%= findlist.country %> <br>
+                </p>
+                </div>
+              </div>
+            <form method="get" action="/listing/<%= findlist._id %>/edit">
+                <button class="btn btn-dark">edit this property</button>
+            </form>
+            <br>
+            <form method="post" action="/listing/<%= findlist._id %>/distroy?_method=DELETE">
+                <button class="btn btn-dark">delete this property</button>
+            </form>
+            <br>
+            <hr>
+            <div class="">
+                <h4>leave a review</h4>
+                <form method="post" action="/action">
+                    <div class="col-8 offset-3">
+                        <label for="rating" class="form-label">please give rating</label>
+                        <input class="form-control" type="range" min="0" max="5" id="rating" name="review[rating]">
+                    </div>
+                    <div class="col-8 offset-3">
+                        <label class="form-label" for="comment">comments</label>
+                        <textarea class="form-control" name="review[comment]" id="comment" cols="30" rows="10"></textarea>
+                    </div>
+                    <button class="btn btn-dark">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

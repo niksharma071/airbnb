@@ -1,0 +1,42 @@
+<% layout("/layout/boilerplate") %>
+<body>
+    <h1>Add New Listing</h1><br>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form method="post" action="/listing/new" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label>
+                    <textarea rows="4" placeholder="enter the title of property" name="listing[title]" id="" aria-placeholder="enter title of the property" class="form-control" required></textarea>
+                    <div class="invalid-feedback">Please Enter Title</div>
+                </div>
+                <div class="mb-3">
+                    <label for="discription" class="form-label">Discrption:</label>
+                    <textarea required name="listing[description]" rows="6" placeholder="discription" id="" class="form-control"></textarea>
+                    <div class="invalid-feedback">Please Enter Discription</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Listing Image</label>
+                    <input type="file" name="listing[image]" class="form-control" required>
+                    <div class="invalid-feedback">Please Upload Image</div>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price: </label>
+                    <input required name="listing[price]" type="number" class="form-control">
+                    <div class="invalid-feedback">Please Enter Price</div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location:</label>
+                    <input required name="listing[location]" type="text" class="form-control">
+                    <div class="invalid-feedback">Please Enter Location</div>
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country:</label>
+                    <input required name="listing[country]" type="text" class="form-control">
+                    <div class="invalid-feedback">Please Enter Country</div>
+                </div>
+                <br>
+                <button class="btn btn-dark">Add</button><br><br>
+            </form>
+        </div>
+    </div>
+</body>
