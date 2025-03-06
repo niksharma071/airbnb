@@ -1,5 +1,5 @@
 const listing = require("../models/listing");
-
+const reviews = require("../models/reviews");
 module.exports.index = async (req,res,next)=>{
     try{
         const alllist = await listing.find({});
